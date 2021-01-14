@@ -80,5 +80,45 @@ function init()
 
 }
 
+const generateFile = answers => {
+    return `
+# ${answers.title}
+${answers.license === "MIT License" ? "[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)" : answers.license === "Apache License" ? "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)" : answers.license === "GPL License" ? "[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)" : "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)"}
+## Description of the project
+${answers.description}
+    
+## Table of Contents
+- [instructions](#-Installation-Instructions)
+- [How it is used](#-How-the-Project-Should-Be-Used)
+- [License](#-License)
+- [Contribution](#-Contribution-Guidelines)
+- [Testing](#-Test-Instructions)
+- [Questions](#-Questions)
+    
+## Installation Instructions
+${answers.install} 
+    
+## How the Project Should Be Used
+${answers.useage}
+    
+## License 
+${answers.license === "MIT License" ? "This application uses The MIT License" : answers.license === "Apache License" ? "This application uses The Apache License" : answers.license === "GPL License" ? "This application uses The GPL License" : "This application is unlicensed"}
+    
+## Contribution Guidelines
+${answers.guidelines}
+    
+## Test Instructions
+${answers.testing}
+    
+## Questions
+Get in touch with any questions by visiting my github:
+[${answers.userid}](https://github.com/${answers.userid}/) 
+  
+Or you can email me at:
+[${answers.email}](mailto:${answers.email})
+    
+`;
+};
+
 // function call to initialize program
 init();
