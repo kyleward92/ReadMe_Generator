@@ -69,7 +69,14 @@ function writeToFile(fileName, data) {
 
 
 // function to initialize program
-function init() {
+function init() 
+{
+    inquirer.prompt(questions).then((answers) => {
+        console.log(JSON.stringify(answers, null, ' '));
+        const response = generateFile(answers);
+
+        writeToFile("README.md", response);
+    })
 
 }
 
